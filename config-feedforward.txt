@@ -1,0 +1,98 @@
+[NEAT]
+fitness_criterion     = max 
+# Dit verwijderd de slechte vogels en gaat zo door met de beste. Kan ook min gebruiken en dan verwijderd die de beste
+fitness_threshold     = 100 
+# welk fitness level je wilt bereiken. 100 betekent een volledig automatische vogel die oneindig door kan gaan.
+pop_size              = 10 
+# Hoeveel voegls je hebt per generatie
+reset_on_extinction   = False 
+# Dit zorgt ervoor dat de soort vogels die niet ver komen weg gaan en niet meer terugkomen.
+
+[DefaultGenome]
+# node activation options
+activation_default      = tanh
+activation_mutate_rate  = 0.0 
+# kans op een random mutatie. Dit willen we niet, dus staat die op 0% kans
+activation_options      = tanh 
+# opties voor de activatie funties
+
+# node aggregation options
+aggregation_default     = sum
+aggregation_mutate_rate = 0.0
+aggregation_options     = sum
+
+# node bias options
+bias_init_mean          = 0.0
+bias_init_stdev         = 1.0
+bias_max_value          = 30.0
+bias_min_value          = -30.0
+bias_mutate_power       = 0.5 
+# hoeveel de nieuwe generatie veranderd ten opzichte van de vorige
+bias_mutate_rate        = 0.7 
+# hoeveel de nieuwe generatie veranderd ten opzichte van de vorige
+bias_replace_rate       = 0.1 
+# hoeveel de nieuwe generatie veranderd ten opzichte van de vorige
+
+# genome compatibility options
+compatibility_disjoint_coefficient = 1.0
+compatibility_weight_coefficient   = 0.5
+
+# connection add/remove rates
+conn_add_prob           = 0.5 
+# hoe groot de kans is dat de vogel een nieuwe connectie krijgt
+conn_delete_prob        = 0.5 
+# hoe groot de kans is dat de vogel een oude connectie verwijderd
+
+# connection enable options
+enabled_default         = True 
+# het feit dat er een kans is dat de connecties aan staan
+enabled_mutate_rate     = 0.01 
+# hoe groot de kans is dat de connectie aan staat
+
+feed_forward            = True 
+# we gebruiken een feed forward neural netwerk
+# changed in v0.92
+initial_connection      = full_nodirect 
+# volle connected lagen bij de start
+
+# node add/remove rates
+node_add_prob           = 0.2 
+# kans op een nieuwe node
+node_delete_prob        = 0.2 
+# kans dat een oude node wordt verwijderd
+
+# network parameters
+# Hoeveel neurons er bij het begin rondgaan
+num_hidden              = 0
+num_inputs              = 3
+num_outputs             = 1
+
+# node response options
+response_init_mean      = 1.0
+response_init_stdev     = 0.0
+response_max_value      = 30.0
+response_min_value      = -30.0
+response_mutate_power   = 0.0
+response_mutate_rate    = 0.0
+response_replace_rate   = 0.0
+
+# connection weight options
+weight_init_mean        = 0.0
+weight_init_stdev       = 1.0
+weight_max_value        = 30
+weight_min_value        = -30
+weight_mutate_power     = 0.5
+weight_mutate_rate      = 0.8
+weight_replace_rate     = 0.1
+
+[DefaultSpeciesSet]
+compatibility_threshold = 3.0
+
+[DefaultStagnation]
+species_fitness_func = max
+max_stagnation       = 20
+species_elitism      = 2
+
+[DefaultReproduction]
+elitism            = 2
+survival_threshold = 0.2
